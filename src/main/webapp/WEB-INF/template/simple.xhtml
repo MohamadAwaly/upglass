@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title><ui:insert name="title">#{bundle['application.defaultpage.title']}</ui:insert></title>
+
+    <!--    side nav-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"/>
+
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>-->
+    <!--    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script type="text/javascript" src="#{request.contextPath}/js/jsGlass.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/jquery-3.5.1.js"></script>
+
+    <link href="#{request.contextPath}/css/simple.css" rel="stylesheet" type="text/css"/>
+    <link href="#{request.contextPath}/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+        </div>
+        <!--        container-fluid-->
+        <div class="d-flex flex-row justify-content-start bd-highlight mb-1">
+            <div class="bg-dark">
+                <div id="content" class="m-lg-4">
+                    <ui:insert name="content">
+                        <ui:include src="content.xhtml"/>
+                    </ui:insert>
+                </div>
+            </div>
+            <div id="content1" class="px-5 pt-5">
+                <div class="page-wrapper chiller-theme toggled">
+                    <div class="page-content">
+                        <div class="container-fluid">
+                            <ui:insert name="content1">
+
+                            </ui:insert>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:insert name="footer">
+                <ui:include src="footer.xhtml"/>
+            </ui:insert>
+        </div>
+    </div>
+</h:body>
+</html>

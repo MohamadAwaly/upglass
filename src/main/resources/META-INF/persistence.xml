@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="upglass" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>be.atc.entities.User</class>
+        <class>be.atc.entities.Role</class>
+        <class>be.atc.entities.Permission</class>
+        <class>be.atc.entities.RolePermission</class>
+        <class>be.atc.entities.PaymentMethod</class>
+        <class>be.atc.entities.Team</class>
+        <class>be.atc.entities.Address</class>
+        <class>be.atc.entities.City</class>
+        <class>be.atc.entities.Country</class>
+        <class>be.atc.entities.AddressUser</class>
+        <class>be.atc.entities.Order</class>
+        <class>be.atc.entities.AppointmentHistory</class>
+        <class>be.atc.entities.Appointment</class>
+        <class>be.atc.entities.DocumentsType</class>
+        <class>be.atc.entities.BillingDocument</class>
+        <class>be.atc.entities.Car</class>
+        <class>be.atc.entities.Model</class>
+        <class>be.atc.entities.Brand</class>
+        <class>be.atc.entities.BodyShellType</class>
+        <class>be.atc.entities.Window</class>
+        <class>be.atc.entities.WindowOptionWindow</class>
+        <class>be.atc.entities.OptionsWindow</class>
+        <class>be.atc.entities.WindowsType</class>
+        <class>be.atc.entities.WindowOrder</class>
+        <class>be.atc.entities.BillingDocumentWindow</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/upglass"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+        </properties>
+    </persistence-unit>
+</persistence>

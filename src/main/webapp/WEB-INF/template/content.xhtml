@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:g="http://java.sun.com/jsf/html">
+<f:view>
+    <ui:composition>
+        <!--        <div class="container-fluid">-->
+        <!--        </div>-->
+        <h:panelGroup layout="block" class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"/>
+            </a>
+            <h:panelGroup layout="block" id="sidebar" class="sidebar-wrapper">
+                <h:panelGroup layout="block" class="sidebar-content">
+                    <h:panelGroup layout="block" class="sidebar-brand">
+                        <a href="#">up glass</a>
+                        <h:panelGroup layout="block" id="close-sidebar">
+                            <i class="fas fa-times"/>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                    <h:panelGroup layout="block" class="sidebar-header">
+                        <h:panelGroup layout="block" class="user-pic">
+                            <img class="img-responsive img-rounded"
+                                 src="https://thumbs.dreamstime.com/b/signe-et-symbole-de-vecteur-d-ic%C3%B4ne-pare-brise-isolement-sur-le-backgro-blanc-133759817.jpg"
+                                 alt="User picture"/>
+                        </h:panelGroup>>
+                        <h:panelGroup layout="block" class="user-info">
+                              <span class="user-name">Admin
+                                <strong>Upglass</strong>
+                              </span>
+                            <span class="user-role">Administrator</span>
+                            <span class="user-status">
+            <i class="fa fa-circle"/>
+            <span>Online</span>
+          </span>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                    <!-- sidebar-header  -->
+                    <h:panelGroup layout="block" class="sidebar-search">
+                        <h:panelGroup layout="block">
+                            <h:panelGroup layout="block" class="input-group">
+                                <h:inputText type="text" class="form-control search-menu" placeholder="Search..."/>
+                                <h:panelGroup layout="block" class="input-group-append">
+              <span class="input-group-text">
+                <h:link class="fa fa-search" aria-hidden="true"/>
+              </span>
+                                </h:panelGroup>
+                            </h:panelGroup>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                    <!-- sidebar-search  -->
+                    <h:panelGroup layout="block" class="sidebar-menu">
+                        <ul>
+                            <li class="header-menu">
+                                <span>General</span>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fa fa-tachometer-alt"/>
+                                    <h:outputText value="#{bundle['sideNave.windowsTile']}"/>
+                                    <span class="badge badge-pill badge-warning">New</span>
+                                </a>
+                                <h:panelGroup layout="block" class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <h:link value="#{bundle['windowsReferences.add.tile']}"
+                                                    outcome="windowsReferenceAdd.xhtml"/>
+                                        </li>
+                                        <li>
+                                            <h:link value="#{bundle['windowsReferences.title.list']}"
+                                                    outcome="windowsReferenceList.xhtml"/>
+                                        </li>
+
+                                        <li>
+                                            <h:link value="#{bundle['option.add']}"
+                                                    outcome="optionAdd.xhtml"/>
+                                        </li>
+                                        <li>
+                                            <h:link value="#{bundle['option.list']}"
+                                                    outcome="optionsList.xhtml"/>
+                                        </li>
+
+                                        <li>
+                                            <h:link value="#{bundle['windowsType.add']}"
+                                                    outcome="windowsTypeAdd.xhtml"/>
+                                        </li>
+                                        <li>
+                                            <h:link value="#{bundle['windowsType.list']}"
+                                                    outcome="windowsTypeList.xhtml"/>
+                                        </li>
+                                        <li>
+                                            <h:link value="#{bundle['bodyShelType.add']}"
+                                                    outcome="bodyShellTypeAdd.xhtml"/>
+                                        </li>
+                                        <li>
+                                            <h:link value="#{bundle['bodyShelType.list']}"
+                                                    outcome="bodyShellTypeList.xhtml"/>
+                                        </li>
+                                    </ul>
+                                </h:panelGroup>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fa fa-shopping-cart"/>
+                                    <!--                                    <span>E-commerce</span>-->
+                                    <h:outputText value="#{bundle['sideNave.bodyShelType']}"/>
+                                    <span class="badge badge-pill badge-danger">3</span>
+                                </a>
+                                <h:panelGroup layout="block" class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Products
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Credit cart</a>
+                                        </li>
+                                    </ul>
+                                </h:panelGroup>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="far fa-gem"/>
+                                    <span>Components</span>
+                                </a>
+                                <h:panelGroup layout="block" class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">General</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Panels</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Tables</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Icons</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Forms</a>
+                                        </li>
+                                    </ul>
+                                </h:panelGroup>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fa fa-chart-line"/>
+                                    <span>Charts</span>
+                                </a>
+                                <h:panelGroup layout="block" class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Pie chart</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Line chart</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Bar chart</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Histogram</a>
+                                        </li>
+                                    </ul>
+                                </h:panelGroup>
+                            </li>
+                            <li class="sidebar-dropdown">
+                                <a href="#">
+                                    <i class="fa fa-globe"/>
+                                    <span>Maps</span>
+                                </a>
+                                <h:panelGroup layout="block" class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Google maps</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Open street map</a>
+                                        </li>
+                                    </ul>
+                                </h:panelGroup>
+                            </li>
+                            <li class="header-menu">
+                                <span>Extra</span>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-book"/>
+                                    <span>Documentation</span>
+                                    <span class="badge badge-pill badge-primary">Beta</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-calendar"/>
+                                    <span>Calendar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-folder"/>
+                                    <span>Examples</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </h:panelGroup>
+                    <!-- sidebar-menu  -->
+                </h:panelGroup>
+                <!-- sidebar-content  -->
+                <h:panelGroup layout="block" class="sidebar-footer">
+                    <a href="#">
+                        <i class="fa fa-bell"/>
+                        <span class="badge badge-pill badge-warning notification">3</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-envelope"/>
+                        <span class="badge badge-pill badge-success notification">7</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-cog"/>
+                        <span class="badge-sonar"/>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-power-off"/>
+                    </a>
+                </h:panelGroup>
+            </h:panelGroup>
+
+        </h:panelGroup>
+    </ui:composition>
+</f:view>
+</html>
+        <!-- class="nav-link px-0"-->
