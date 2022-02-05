@@ -29,7 +29,7 @@
 
     <Resource name="jdbc/upglass" auth="Container" type="javax.sql.DataSource"
               maxActive="-1" maxIdle="-1" maxWait="10000" username="root"
-              password="" driverClassName="com.mysql.jdbc.Driver"
+              password="" driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/upglass?autoReconnect=true"/>
 
     <!-- to use Weld (CDI) on tomcat -->

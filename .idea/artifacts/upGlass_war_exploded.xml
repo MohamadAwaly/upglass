@@ -42,6 +42,7 @@
           <element id="library" level="project" name="Maven: org.jboss.spec.javax.el:jboss-el-api_3.0_spec:2.0.0.Final" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:3.5.1" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:10.0.0" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.9" />
         </element>
       </element>
