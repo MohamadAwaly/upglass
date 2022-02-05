@@ -4,6 +4,7 @@ import be.atc.connection.EMF;
 import be.atc.connection.EntityFinderImpl;
 import be.atc.entities.Car;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -21,6 +22,8 @@ public class customerCarBean implements Serializable {
 
     private List<Car> lstCars = new ArrayList<Car>();
     private String carValueSearchBar;
+
+
     public void carsList(){
         EntityManager em = EMF.getEM();
         // à mettre dans un service (que l'on peut appeler ici):

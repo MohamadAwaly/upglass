@@ -20,16 +20,12 @@
         <h:inputText id="inputSearchCar" value="#{customerCarBean.carValueSearchBar}">
             <f:ajax event="keyup"
                     listener="#{customerCarBean.carsList}"
-                    render="input2"
+                    render="carDataTable"
                     execute="@this"
             />
         </h:inputText>
-        <h:inputText id="input2" value="#{customerCarBean.carValueSearchBar}">
-
-        </h:inputText>
-        <br/>
-        <h:panelGroup id="carTb">
-            <h:dataTable value="#{customerCarBean.lstCars}"
+        <h:panelGroup>
+            <h:dataTable id="carDataTable" value="#{customerCarBean.lstCars}"
                          var="c"
                          styleClass="table">
                 <h:column>
