@@ -10,7 +10,7 @@
 
     <ui:insert name="header"></ui:insert>
     <ui:define name="title">
-        Documentation
+        Billing/Facturation
     </ui:define>
 
     <ui:define name="content1">
@@ -20,10 +20,12 @@
         <h:inputText id="inputSearchCar" value="#{customerCarBean.carValueSearchBar}">
             <f:ajax event="keyup"
                     listener="#{customerCarBean.carsList}"
-                    render="carDataTable"
-                    execute="@this"
+                    render="inputSearchCarDuplicate"
+                    execute="@all"
             />
         </h:inputText>
+        <br/>
+        <h:inputText id="inputSearchCarDuplicate" value="#{customerCarBean.carValueSearchBar}"/>
         <h:panelGroup>
             <h:dataTable id="carDataTable" value="#{customerCarBean.lstCars}"
                          var="c"
@@ -36,6 +38,7 @@
                     <f:facet name="header">Modèle</f:facet>
                     <h:outputText value="#{c.model.modelName}"/>
                 </h:column>
+
             </h:dataTable>
         </h:panelGroup>
 
