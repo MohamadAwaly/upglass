@@ -8,11 +8,21 @@
 
 <ui:composition template="../WEB-INF/template/simple.xhtml">
 
+    <ui:define name="content1">
+        <h:form>
+            <h:outputText value="Plaque/Plate"/>
+            <h:inputText value="#{carAddBean.car.carPlate}"/>
 
-    <h:form>
-        <h:outputText value="Name/Nom"/>
-        <h:inputText value=""/>
+            <h:outputText value="Idententification Number / Numéro d'identification"/>
+            <h:inputText value="#{carAddBean.car.vehicleIdentificationNumber}"/>
 
-    </h:form>
+            <h:outputText value="Building date / Date de construction"/>
+            <h:inputText value="#{carAddBean.car.buildingDate}"/>
+
+            <h:outputText value="Kilometers / Kilomètres"/>
+            <h:inputText value="#{carAddBean.car.kilometers}"/>
+
+        </h:form>
+    </ui:define>
 </ui:composition>
 </html>
