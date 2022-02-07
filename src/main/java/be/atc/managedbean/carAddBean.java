@@ -3,8 +3,12 @@ package be.atc.managedbean;
 import be.atc.connection.EMF;
 import be.atc.entities.Car;
 import be.atc.entities.Model;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -14,14 +18,27 @@ import java.util.Date;
 import java.util.List;
 
 @Named
-@SessionScoped
+@ViewScoped
 public class carAddBean implements Serializable {
+    private Logger logger = Logger.getLogger(carAddBean.class);
+    private String monString;
+    private Car car = new Car();
+    private Model model = new Model();
 
-    private Car car;
-    private Model model;
+    /**
+     * Functions
+     */
+
+    public void submit(){
+        logger.log(Level.INFO,"Plaque : "+car.getCarPlate());
+        System.out.println("INFO JIWAII");
+        System.out.println(car.getCarPlate()+ " IS OKAY");
+    }
 
 
-
+    /**
+    GETTERS / SETTERS
+     */
     public void setCar(Car car) {
         this.car = car;
     }
@@ -35,5 +52,11 @@ public class carAddBean implements Serializable {
         return model;
     }
 
+    public void setMonString(String monString) {
+        this.monString = monString;
+    }
 
+    public String getMonString() {
+        return monString;
+    }
 }

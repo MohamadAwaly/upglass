@@ -22,6 +22,11 @@
             <h:outputText value="Kilometers / Kilomètres"/>
             <h:inputText value="#{carAddBean.car.kilometers}"/>
 
+<!--            <h:outputText value="Plaque/Plate"/>-->
+<!--            <h:inputText value="#{carAddBean.monString}"/>-->
+
+            <h:commandButton value="TEST" action="#{carAddBean.submit}"/>
+            <h:outputText value="Plaque is : #{carAddBean.car.carPlate}"/>
         </h:form>
     </ui:define>
 </ui:composition>

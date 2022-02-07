@@ -16,12 +16,11 @@
     <ui:define name="content1">
 
         <h:outputText value="Trouver un véhicule : "></h:outputText>
-
         <h:inputText id="inputSearchCar" value="#{customerCarBean.carValueSearchBar}">
             <f:ajax event="keyup"
                     listener="#{customerCarBean.carsList}"
                     render="inputSearchCarDuplicate"
-                    execute="@all"
+                    execute="inputSearchCar"
             />
         </h:inputText>
         <br/>
