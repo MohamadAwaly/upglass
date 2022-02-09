@@ -1,6 +1,7 @@
 package be.atc.service;
 
 import be.atc.connection.EMF;
+import be.atc.entities.Brand;
 import be.atc.entities.Car;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -27,6 +28,10 @@ public class CarService {
     }
     public List<Car> listCarWhere(String where){
         Query query = em.createNamedQuery("listCar").setParameter("inputUser","%"+where+"%");
+        return query.getResultList();
+    }
+    public List<Brand> listBrand(){
+        Query query = em.createNamedQuery("listBrand");
         return query.getResultList();
     }
 }

@@ -39,9 +39,11 @@ public class customerCarBean implements Serializable {
     public void setLstCars(List<Car> lstCars) {
         this.lstCars = lstCars;
     }
+
     public String getCarValueSearchBar() {
         return carValueSearchBar;
     }
+
     public void setCarValueSearchBar(String carValueSearchBar) {
         this.carValueSearchBar = carValueSearchBar;
     }

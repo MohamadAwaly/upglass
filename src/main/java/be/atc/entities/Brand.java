@@ -7,7 +7,9 @@ import java.util.Objects;
 
 @Entity
 @Table( name = "brands" )
-
+@NamedQueries(value = {
+        @NamedQuery(name = "listBrand",query = "select b from Brand b order by b.brandName asc ")
+})
 public class Brand implements Serializable {
     private static final long serialVersionUID = 1L;
 

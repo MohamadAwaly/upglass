@@ -1,11 +1,14 @@
 package be.atc.managedbean;
 
 import be.atc.connection.EMF;
+import be.atc.entities.Brand;
 import be.atc.entities.Car;
 import be.atc.entities.Model;
+import be.atc.service.CarService;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -24,6 +27,7 @@ public class carAddBean implements Serializable {
     private String monString;
     private Car car = new Car();
     private Model model = new Model();
+    private List<Brand> listBrand;
 
     /**
      * Functions
@@ -33,6 +37,10 @@ public class carAddBean implements Serializable {
         logger.log(Level.INFO,"Plaque : "+car.getCarPlate());
         System.out.println("INFO JIWAII");
         System.out.println(car.getCarPlate()+ " IS OKAY");
+    }
+    public List<Brand> lstBrand(){
+        CarService carService = new CarService();
+        return carService.listBrand();
     }
 
 
@@ -55,7 +63,6 @@ public class carAddBean implements Serializable {
     public void setMonString(String monString) {
         this.monString = monString;
     }
-
     public String getMonString() {
         return monString;
     }
