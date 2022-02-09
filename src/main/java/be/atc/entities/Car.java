@@ -8,6 +8,12 @@ import java.util.Objects;
 
 @Entity
 @Table( name = "cars" )
+@NamedQueries(value = {
+        @NamedQuery(name="listCar",query="select c from Car c " +
+                "where c.carPlate like :inputUser or lower(c.model.modelName) like lower(:inputUser) " +
+                "order by c.model.modelName asc "),
+        //@NamedQuery()
+})
 
 public class Car implements Serializable {
     private static final long serialVersionUID = 1L;

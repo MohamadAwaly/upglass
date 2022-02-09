@@ -1,17 +1,10 @@
 package be.atc.managedbean;
 
-import be.atc.connection.EMF;
-import be.atc.connection.EntityFinderImpl;
 import be.atc.entities.Car;
+import be.atc.service.CarService;
 
-import javax.annotation.ManagedBean;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +19,16 @@ public class customerCarBean implements Serializable {
 
 
     public void carsList(){
-        EntityManager em = EMF.getEM();
         // à mettre dans un service (que l'on peut appeler ici):
+        //name , new object avec un constructeur existant voir dans JPA p158
+/** Ancien code (remplacé par un service et une NamedQuery)
+       EntityManager em = EMF.getEM();
         Query query = em.createQuery("select c from Car c " +
                         "where c.carPlate like :inputUser or c.model.modelName like :inputUser")
                 .setParameter("inputUser","%"+carValueSearchBar+"%"); // dans une NamedQuery
-        //name , new object avec un constructeur existant voir dans JPA p158
-        lstCars = query.getResultList();
+  */
+        CarService carService = new CarService();
+        lstCars = carService.listCarWhere(carValueSearchBar);
         System.out.println("ROW FROM JPA :  "+lstCars.size());
         System.out.println("SearchBar : "+carValueSearchBar);
     }

@@ -10,20 +10,27 @@
 
     <ui:define name="content1">
         <h:form>
-            <h:outputText value="Plaque/Plate"/>
-            <h:inputText value="#{carAddBean.car.carPlate}"/>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h:outputLabel value="Plaque/Plate" styleClass="form-label"/>
+                        <h:inputText value="#{carAddBean.car.carPlate}" styleClass="form-control"/>
+                        <br/>
+                        <h:outputLabel value="Idententification Number / Numéro d'identification" styleClass="form-label"/>
+                        <h:inputText value="#{carAddBean.car.vehicleIdentificationNumber}" styleClass="form-control"/>
+                    </div>
+                    <div class="col">
+                        <h:outputLabel value="Building date / Date de construction" styleClass="form-label"/>
+                        <h:inputText value="#{carAddBean.car.buildingDate}" styleClass="form-control date-picker"/>
+                        <br/>
+                        <h:outputLabel value="Kilometers / Kilomètres" styleClass="form-label"/>
+                        <h:inputText value="#{carAddBean.car.kilometers}" styleClass="form-control"/>
+                    </div>
+                </div>
+            </div>
 
-            <h:outputText value="Idententification Number / Numéro d'identification"/>
-            <h:inputText value="#{carAddBean.car.vehicleIdentificationNumber}"/>
-
-            <h:outputText value="Building date / Date de construction"/>
-            <h:inputText value="#{carAddBean.car.buildingDate}"/>
-
-            <h:outputText value="Kilometers / Kilomètres"/>
-            <h:inputText value="#{carAddBean.car.kilometers}"/>
-
-<!--            <h:outputText value="Plaque/Plate"/>-->
-<!--            <h:inputText value="#{carAddBean.monString}"/>-->
+            <!--            <h:outputText value="Plaque/Plate"/>-->
+            <!--            <h:inputText value="#{carAddBean.monString}"/>-->
 
             <h:commandButton value="TEST" action="#{carAddBean.submit}"/>
             <h:outputText value="Plaque is : #{carAddBean.car.carPlate}"/>

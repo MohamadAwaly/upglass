@@ -15,8 +15,8 @@
 
     <ui:define name="content1">
 
-        <h:outputText value="Trouver un véhicule : "></h:outputText>
-        <h:inputText id="inputSearchCar" value="#{customerCarBean.carValueSearchBar}">
+        <h:outputLabel value="Trouver un véhicule : " styleClass="form-label"/>
+        <h:inputText id="inputSearchCar" value="#{customerCarBean.carValueSearchBar}" styleClass="form-control">
             <f:ajax event="keyup"
                     listener="#{customerCarBean.carsList}"
                     render="inputSearchCarDuplicate"
