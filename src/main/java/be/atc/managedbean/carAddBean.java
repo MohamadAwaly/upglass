@@ -1,6 +1,5 @@
 package be.atc.managedbean;
 
-import be.atc.connection.EMF;
 import be.atc.entities.Brand;
 import be.atc.entities.Car;
 import be.atc.entities.Model;
@@ -8,16 +7,9 @@ import be.atc.service.CarService;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Named
@@ -26,8 +18,10 @@ public class carAddBean implements Serializable {
     private Logger logger = Logger.getLogger(carAddBean.class);
     private String monString;
     private Car car = new Car();
-    private Model model = new Model();
+    private Brand brandSelected;
+    private Model modelSelected;
     private List<Brand> listBrand;
+    private CarService carService = new CarService();
 
     /**
      * Functions
@@ -39,9 +33,11 @@ public class carAddBean implements Serializable {
         System.out.println(car.getCarPlate()+ " IS OKAY");
     }
     public List<Brand> lstBrand(){
-        CarService carService = new CarService();
         return carService.listBrand();
     }
+//    public List<Model> lstModel(){
+//        return carService.listModelsWhereBrandIs();
+//    }
 
 
     /**
@@ -53,11 +49,17 @@ public class carAddBean implements Serializable {
     public Car getCar() {
         return car;
     }
-    public void setModel(Model model) {
-        this.model = model;
+    public void setModelSelected(Model modelSelected) {
+        this.modelSelected = modelSelected;
     }
-    public Model getModel() {
-        return model;
+    public Model getModelSelected() {
+        return modelSelected;
+    }
+    public void setBrandSelected(Brand brandSelected) {
+        this.brandSelected = brandSelected;
+    }
+    public Brand getBrandSelected() {
+        return brandSelected;
     }
 
     public void setMonString(String monString) {

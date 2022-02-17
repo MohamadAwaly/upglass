@@ -30,6 +30,11 @@
                         <h:outputText value="Model-Mark" styleClass="form-label"/>
                         <h:selectOneMenu styleClass="form-select" value="Selection marque">
                             <f:selectItems value="#{carAddBean.lstBrand()}" var="b" itemLabel="#{b.brandName}" itemValue="#{b.idBrand}"></f:selectItems>
+                            <f:ajax listener="#{}"
+                        </h:selectOneMenu>
+                        <h:outputLabel value="Model" styleClass="form-label"/>
+                        <h:selectOneMenu styleClass="form-select" value="Selection Modele">
+                            <f:selectItems value=""
                         </h:selectOneMenu>
 
                     </div>

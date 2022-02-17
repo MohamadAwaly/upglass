@@ -14,33 +14,36 @@
     </ui:define>
 
     <ui:define name="content1">
+        <h:form>
 
-        <h:outputLabel value="Trouver un véhicule : " styleClass="form-label"/>
-        <h:inputText id="inputSearchCar" value="#{customerCarBean.carValueSearchBar}" styleClass="form-control">
-            <f:ajax event="keyup"
-                    listener="#{customerCarBean.carsList}"
-                    render="inputSearchCarDuplicate"
-                    execute="inputSearchCar"
-            />
-        </h:inputText>
-        <br/>
-        <h:inputText id="inputSearchCarDuplicate" value="#{customerCarBean.carValueSearchBar}"/>
-        <h:panelGroup>
-            <h:dataTable id="carDataTable" value="#{customerCarBean.lstCars}"
-                         var="c"
-                         styleClass="table">
-                <h:column>
-                    <f:facet name="header">Plaque</f:facet>
-                    <h:outputText value="#{c.carPlate}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Modèle</f:facet>
-                    <h:outputText value="#{c.model.modelName}"/>
-                </h:column>
+            <h:outputLabel value="Trouver un véhicule : " styleClass="form-label"/>
+            <h:inputText id="inputSearchCar"
+                         value="#{customerCarBean.carValueSearchBar}"
+                         styleClass="form-control">
+                <f:ajax event="keyup"
+                        listener="#{customerCarBean.carsList}"
+                        render="carDataTable"
+                        execute="inputSearchCar"
+                />
+            </h:inputText>
+            <br/>
+            <h:panelGroup>
+                <h:dataTable id="carDataTable" value="#{customerCarBean.lstCars}"
+                             var="c"
+                             styleClass="table">
+                    <h:column>
+                        <f:facet name="header">Plaque</f:facet>
+                        <h:outputText value="#{c.carPlate}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Modèle</f:facet>
+                        <h:outputText value="#{c.model.modelName}"/>
+                    </h:column>
 
-            </h:dataTable>
-        </h:panelGroup>
+                </h:dataTable>
+            </h:panelGroup>
 
+        </h:form>
     </ui:define>
 </ui:composition>
 

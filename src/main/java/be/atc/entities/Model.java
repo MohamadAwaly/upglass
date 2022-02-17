@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 @Table( name = "models" )
 @NamedQueries(value = {
-        @NamedQuery(name = "listModel",query = "select m from Model m where m.modelName like :inputUser order by m.modelName asc ")
+        @NamedQuery(name = "listModelWhereBrandIs",query = "select m from Model m where m.modelName like :inputUser order by m.modelName asc ")
 })
 
 public class Model implements Serializable {
