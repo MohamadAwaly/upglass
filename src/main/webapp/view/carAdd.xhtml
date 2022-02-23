@@ -28,13 +28,20 @@
                     </div>
                     <div class="col">
                         <h:outputText value="Model-Mark" styleClass="form-label"/>
-                        <h:selectOneMenu styleClass="form-select" value="Selection marque">
-                            <f:selectItems value="#{carAddBean.lstBrand()}" var="b" itemLabel="#{b.brandName}" itemValue="#{b.idBrand}"></f:selectItems>
-                            <f:ajax listener="#{}"
+                        <h:selectOneMenu styleClass="form-select" value="#{carAddBean.monString}">
+                            <f:selectItems id="BrandSelection" value="#{carAddBean.listBrand}" var="brand"
+                                           itemLabel="#{brand.brandName}" itemValue="#{brand.idBrand}">
+                            </f:selectItems>
+                            <f:ajax event="change"
+                                    listener="#{carAddBean.obtainLstModel}"
+                                    render="ModelSelection"
+                                    execute="BrandSelection"
+                            />
+                                    
                         </h:selectOneMenu>
                         <h:outputLabel value="Model" styleClass="form-label"/>
-                        <h:selectOneMenu styleClass="form-select" value="Selection Modele">
-                            <f:selectItems value=""
+                        <h:selectOneMenu id="ModelSelection" styleClass="form-select" value="Selection Modele">
+                            <f:selectItems value="#{carAddBean.listModel}" var="model" itemLabel="#{model.modelName}" itemValue="#{model.idModel}"></f:selectItems>
                         </h:selectOneMenu>
 
                     </div>

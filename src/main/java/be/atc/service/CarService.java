@@ -35,8 +35,9 @@ public class CarService {
         Query query = em.createNamedQuery("listBrand");
         return query.getResultList();
     }
-    public List<Model> listModelsWhereBrandIs(Brand brand){
-        Query query = em.createNamedQuery("listModelWhereBrandIs").setParameter("inputUser",brand);
+    public List<Model> listModelsWhereBrandIs(String idBrand){
+        int intIdBrand = Integer.parseInt(idBrand);
+        Query query = em.createNamedQuery("listModelWhereBrandIs").setParameter("inputUser",intIdBrand);
         return query.getResultList();
     }
 }
