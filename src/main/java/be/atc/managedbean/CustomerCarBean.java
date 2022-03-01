@@ -2,6 +2,8 @@ package be.atc.managedbean;
 
 import be.atc.entities.Car;
 import be.atc.service.CarService;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -10,15 +12,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Named
 @RequestScoped
 public class CustomerCarBean implements Serializable {
-
+    private Logger logger = Logger.getLogger(CustomerCarBean.class);
 
     private List<Car> lstCars = new ArrayList<Car>();
     private String carValueSearchBar;
+    private Car carSelected;
 
-
+    public void myCar(){
+        logger.log(Level.INFO,"Car is "+carSelected.getCarPlate());
+        logger.log(Level.INFO,"Car is "+carSelected.getVehicleIdentificationNumber());
+    }
     public void carsList(){
         // à mettre dans un service (que l'on peut appeler ici):
         //name , new object avec un constructeur existant voir dans JPA p158
@@ -46,5 +53,13 @@ public class CustomerCarBean implements Serializable {
 
     public void setCarValueSearchBar(String carValueSearchBar) {
         this.carValueSearchBar = carValueSearchBar;
+    }
+
+    public Car getCarSelected() {
+        return carSelected;
+    }
+
+    public void setCarSelected(Car carSelected) {
+        this.carSelected = carSelected;
     }
 }

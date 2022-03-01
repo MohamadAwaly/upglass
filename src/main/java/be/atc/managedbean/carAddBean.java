@@ -4,12 +4,10 @@ import be.atc.entities.Brand;
 import be.atc.entities.Car;
 import be.atc.entities.Model;
 import be.atc.service.CarService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +16,10 @@ import java.util.List;
 @SessionScoped
 public class carAddBean implements Serializable {
     private Logger logger = Logger.getLogger(carAddBean.class);
-    private String monString;
+    private String idBrandString;
+    private String idModelString;
+    private String buildingDate;
+    private String plateNumber;
     private Car car = new Car();
     private Brand brandSelected;
     private Model modelSelected;
@@ -31,15 +32,20 @@ public class carAddBean implements Serializable {
      */
 
     public void submit(){
-        logger.log(Level.INFO,"Plaque : "+car.getCarPlate());
         System.out.println("INFO JIWAII");
         System.out.println(car.getCarPlate()+ " IS OKAY");
+        logger.log(Level.INFO,"car kilometre : "+car.getKilometers());
+        logger.log(Level.INFO,"cardate : "+ car.getBuildingDate());
+
     }
 
     public void obtainLstModel(){
         //logger.log(Level.INFO,"brand is "+ brandSelected.getBrandName());
-        logger.log(Level.INFO,"brand is "+ monString);
-        listModel = carService.listModelsWhereBrandIs(monString);
+        logger.log(Level.INFO,"brand is "+ idBrandString);
+        logger.log(Level.INFO,"buildig date "+ buildingDate);
+        logger.log(Level.INFO,"plate "+ plateNumber);
+
+        listModel = carService.listModelsWhereBrandIs(idBrandString);
     }
 
 
@@ -76,11 +82,34 @@ public class carAddBean implements Serializable {
     public List<Model> getListModel() {
         return listModel;
     }
-
-    public void setMonString(String monString) {
-        this.monString = monString;
+    public void setIdBrandString(String idBrandString) {
+        this.idBrandString = idBrandString;
     }
-    public String getMonString() {
-        return monString;
+    public String getIdBrandString() {
+        return idBrandString;
+    }
+
+    public void setIdModelString(String idModelString) {
+        this.idModelString = idModelString;
+    }
+
+    public String getIdModelString() {
+        return idModelString;
+    }
+
+    public String getBuildingDate() {
+        return buildingDate;
+    }
+
+    public void setBuildingDate(String buildingDate) {
+        this.buildingDate = buildingDate;
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 }

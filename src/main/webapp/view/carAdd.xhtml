@@ -3,9 +3,21 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:jsf="http://java.sun.com/jsf/composite"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
-
+<cc:interface>
+    <cc:attribute name="value" type="java.util.Date" required="true" />
+    <cc:attribute name="list" type="java.lang.String" default="" />
+    <cc:attribute name="step" type="java.lang.String" default="1" />
+    <cc:attribute name="min" type="java.util.Date" />
+    <cc:attribute name="max" type="java.util.Date" />
+    <cc:attribute name="readonly" type="java.lang.String" default="false" />
+    <cc:attribute name="required" type="java.lang.String" default="false" />
+    <cc:clientBehavior name="change" targets="date" event="change" />
+</cc:interface>
+<cc:implementation>
 <ui:composition template="../WEB-INF/template/simple.xhtml">
 
     <ui:define name="content1">
@@ -19,16 +31,21 @@
                         <h:outputLabel value="Idententification Number / Numéro d'identification" styleClass="form-label"/>
                         <h:inputText value="#{carAddBean.car.vehicleIdentificationNumber}" styleClass="form-control"/>
                     </div>
+
                     <div class="col">
                         <h:outputLabel value="Building date / Date de construction" styleClass="form-label"/>
-                        <h:inputText value="#{carAddBean.car.buildingDate}" styleClass="form-control date-picker"/>
+                        <h:inputText id="inpDateBuilding" value="#{carAddBean.car.buildingDate}"
+                                     converterMessage="Veuillez utiliser ce format jj-mm-yyyy">
+                            <f:convertDateTime pattern="dd-mm-yyyy"/>
+                        </h:inputText>
+
                         <br/>
                         <h:outputLabel value="Kilometers / Kilomètres" styleClass="form-label"/>
                         <h:inputText value="#{carAddBean.car.kilometers}" styleClass="form-control"/>
                     </div>
                     <div class="col">
                         <h:outputText value="Model-Mark" styleClass="form-label"/>
-                        <h:selectOneMenu styleClass="form-select" value="#{carAddBean.monString}">
+                        <h:selectOneMenu styleClass="form-select" value="#{carAddBean.idBrandString}">
                             <f:selectItems id="BrandSelection" value="#{carAddBean.listBrand}" var="brand"
                                            itemLabel="#{brand.brandName}" itemValue="#{brand.idBrand}">
                             </f:selectItems>
@@ -37,10 +54,10 @@
                                     render="ModelSelection"
                                     execute="BrandSelection"
                             />
-                                    
+
                         </h:selectOneMenu>
                         <h:outputLabel value="Model" styleClass="form-label"/>
-                        <h:selectOneMenu id="ModelSelection" styleClass="form-select" value="Selection Modele">
+                        <h:selectOneMenu id="ModelSelection" styleClass="form-select" value="#{carAddBean.idModelString}">
                             <f:selectItems value="#{carAddBean.listModel}" var="model" itemLabel="#{model.modelName}" itemValue="#{model.idModel}"></f:selectItems>
                         </h:selectOneMenu>
 
@@ -56,4 +73,6 @@
         </h:form>
     </ui:define>
 </ui:composition>
+</cc:implementation>
+
 </html>
