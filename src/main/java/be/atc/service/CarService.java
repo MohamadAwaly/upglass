@@ -4,6 +4,7 @@ import be.atc.connection.EMF;
 import be.atc.entities.Brand;
 import be.atc.entities.Car;
 import be.atc.entities.Model;
+import be.atc.entities.User;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -39,5 +40,14 @@ public class CarService {
         int intIdBrand = Integer.parseInt(idBrand);
         Query query = em.createNamedQuery("listModelWhereBrandIs").setParameter("inputUser",intIdBrand);
         return query.getResultList();
+    }
+    public List<Car> carFindAll(){
+        Query query = em.createNamedQuery("findAll");
+        return query.getResultList();
+    }
+    public List<User> userFindAll(){
+        EntityManager em = EMF.getEM();
+        Query query = em.createQuery("select u from User u ");
+        return  query.getResultList();
     }
 }

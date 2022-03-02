@@ -13,13 +13,40 @@
         Billing/Facturation car detail
     </ui:define>
     <ui:define name="content1">
-        <h:outputLabel value="Plaque/Plate" styleClass="form-label"/>
-        <h:outputText value="#{customerCarBean.carSelected.carPlate}" styleClass="form-control"/>
-        <br/>
-        <h:outputLabel value="Idententification Number / Numéro d'identification" styleClass="form-label"/>
-        <h:outputText value="#{customerCarBean.carSelected.vehicleIdentificationNumber}" styleClass="form-control"/>
 
+        <h:form>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4>info vhéhicule</h4>
+                        <h:outputLabel value="Plaque/Plate :" styleClass="form-label"/>
+                        <h:outputText value="#{customerCarBean.carSelected.carPlate}" styleClass="form-control"/>
+                        <br/>
+                        <h:outputLabel value="Idententification Number / Numéro d'identification :" styleClass="form-label"/>
+                        <h:outputText value="#{customerCarBean.carSelected.vehicleIdentificationNumber}" styleClass="form-control"/>
+                        <br/>
+                        <h:outputLabel value="Marque et modele :" styleClass="form-label"/>
+                        <h:outputText value="#{customerCarBean.carSelected.model.brand.brandName} #{customerCarBean.carSelected.model.modelName}" styleClass="form-control"/>
+                        <br/>
+                        <h:outputLabel value="Année de fabrication / Building date :" styleClass="form-label"/>
+                        <h:outputText value="#{customerCarBean.carSelected.buildingDate}" styleClass="form-control">
+                            <f:convertDateTime pattern="dd/ MM/ yyyy"/>
+                        </h:outputText>
+                    </div>
+                    <div class="col">
+                        <h4>Choisir utilisateur / choose user</h4>
+                        <h:selectOneMenu id="userSelection" styleClass="form-select" value="#{customerCarBean.idUser}">
+                            <f:selectItems value="#{customerCarBean.findAllUser()}"
+                                           var="u" itemLabel="#{u.lastName} #{u.firstName}"
+                                           itemValue="#{model.idUser}"></f:selectItems>
+                        </h:selectOneMenu>
+                    </div>
+
+                </div>
+            </div>
+        </h:form>
     </ui:define>
+
 </ui:composition>
 
 

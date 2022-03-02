@@ -1,6 +1,7 @@
 package be.atc.managedbean;
 
 import be.atc.entities.Car;
+import be.atc.entities.User;
 import be.atc.service.CarService;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -8,6 +9,7 @@ import org.apache.log4j.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +22,22 @@ public class CustomerCarBean implements Serializable {
 
     private List<Car> lstCars = new ArrayList<Car>();
     private String carValueSearchBar;
+    private String idUser;
     private Car carSelected;
 
-    public void myCar(){
+    public String carDetail(Car c){
+        this.carSelected = c;
         logger.log(Level.INFO,"Car is "+carSelected.getCarPlate());
         logger.log(Level.INFO,"Car is "+carSelected.getVehicleIdentificationNumber());
+        return "docCarDetail";
+    }
+    public List<Car> finAll(){
+        CarService carService = new CarService();
+        return carService.carFindAll();
+    }
+    public List<User> findAllUser(){
+        CarService carService = new CarService();
+        return carService.userFindAll();
     }
     public void carsList(){
         // à mettre dans un service (que l'on peut appeler ici):
@@ -61,5 +74,13 @@ public class CustomerCarBean implements Serializable {
 
     public void setCarSelected(Car carSelected) {
         this.carSelected = carSelected;
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 }

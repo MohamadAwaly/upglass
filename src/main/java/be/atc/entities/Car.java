@@ -12,7 +12,7 @@ import java.util.Objects;
         @NamedQuery(name="listCar",query="select c from Car c " +
                 "where c.carPlate like :inputUser or lower(c.model.modelName) like lower(:inputUser) " +
                 "order by c.model.modelName asc "),
-        //@NamedQuery()
+        @NamedQuery(name="findAll",query = "select c from Car c order by c.idCars desc ")
 })
 
 public class Car implements Serializable {

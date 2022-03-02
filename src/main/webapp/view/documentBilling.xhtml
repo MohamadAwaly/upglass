@@ -15,22 +15,25 @@
     </ui:define>
 
     <ui:define name="content1">
-        <h:form id="carSearchForm">
-            <h:outputLabel value="Trouver un véhicule : " styleClass="form-label"/>
-            <h:inputText id="inputSearchCar"
-                         a:placeholder="plate or model"
-                         value="#{customerCarBean.carValueSearchBar}"
-                         styleClass="form-control">
-                <f:ajax event="keyup"
-                        listener="#{customerCarBean.carsList}"
-                        render="carDataTable"
-                        execute="inputSearchCar"
-                />
-            </h:inputText>
-        </h:form>
-        <br/>
+        <h3>Choix du véhicule</h3>
         <h:panelGroup>
-                <h:dataTable id="carDataTable" value="#{customerCarBean.lstCars}"
+<!--<h:form>-->
+
+<!--            <h:outputLabel value="Trouver un véhicule : " styleClass="form-label"/>-->
+<!--            <h:inputText id="inputSearchCar"-->
+<!--                         a:placeholder="plate or model"-->
+<!--                         value="#{customerCarBean.carValueSearchBar}"-->
+<!--                         styleClass="form-control">-->
+<!--                <f:ajax event="keyup"-->
+<!--                        listener="#{customerCarBean.carsList}"-->
+<!--                        render="carDataTable"-->
+<!--                        execute="inputSearchCar"-->
+<!--                />-->
+<!--            </h:inputText>-->
+<!--</h:form>-->
+<!--        <br/>-->
+
+                <h:dataTable id="carDataTable" value="#{customerCarBean.finAll()}"
                              var="c"
                              styleClass="table">
                     <h:column>
@@ -42,23 +45,21 @@
                         <h:outputText value="#{c.model.modelName}"/>
                     </h:column>
                     <h:column>
-                        <f:facet name="header">choisir/choose</f:facet>
-                        <h:form id="selectCarForm">
-                        <h:commandButton value="Select" action="docCarDetail">
-                            <f:setPropertyActionListener target="#{customerCarBean.carSelected}"
-                                                         value="#{c}"/>
-                        </h:commandButton>
+                        <f:facet name="header">Identification</f:facet>
+                        <h:outputText value="#{c.vehicleIdentificationNumber}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">option</f:facet>
+
+                        <h:form>
+                            <h:commandButton type="submit" value="Select" action="#{customerCarBean.carDetail(c)}">
+                                <!--                       <f:setPropertyActionListener target="#{customerCarBean.carSelected}"-->
+                                <!--                                                    value="#{c}"/>-->
+                            </h:commandButton>
                         </h:form>
                     </h:column>
                 </h:dataTable>
         </h:panelGroup>
-
-        <h:form id="selectCarFormTEST">
-            <h:commandButton value="Select" action="docCarDetail?faces-redirect=true">
-                <f:setPropertyActionListener target="#{customerCarBean.carSelected}"
-                                             value="#{c}"/>
-            </h:commandButton>
-        </h:form>
     </ui:define>
 </ui:composition>
 

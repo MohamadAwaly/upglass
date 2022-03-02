@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template/content.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template/header.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/template" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/docCarDetail.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/view" />
       </map>
     </option>
   </component>
