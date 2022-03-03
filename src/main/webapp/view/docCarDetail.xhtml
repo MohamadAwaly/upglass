@@ -37,12 +37,27 @@
                         <h4>Choisir utilisateur / choose user</h4>
                         <h:selectOneMenu id="userSelection" styleClass="form-select" value="#{customerCarBean.idUser}">
                             <f:selectItems value="#{customerCarBean.findAllUser()}"
-                                           var="u" itemLabel="#{u.lastName} #{u.firstName}"
-                                           itemValue="#{model.idUser}"></f:selectItems>
+                                           var="user" itemLabel="#{user.lastName} #{user.firstName}"
+                                           itemValue="#{user.idUSer}"></f:selectItems>
                         </h:selectOneMenu>
                     </div>
-
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Commande</h4>
+                        <h:selectOneMenu id="windowSelection" styleClass="form-select" value="#{customerCarBean.windowSelected}">
+                            <f:selectItems value="#{customerCarBean.windowListWhereModelIs(customerCarBean.carSelected.model)}"
+                                           var="w" itemLabel="#{w.name} #{w.code}"
+                                           itemValue="#{w.idWindow}"></f:selectItems>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <h:form>
+                    <h:commandButton type="submit" value="Select" action="#{customerCarBean.resumeBilling()}">
+                        <!--                       <f:setPropertyActionListener target="#{customerCarBean.carSelected}"-->
+                        <!--                                                    value="#{c}"/>-->
+                    </h:commandButton>
+                </h:form>
             </div>
         </h:form>
     </ui:define>

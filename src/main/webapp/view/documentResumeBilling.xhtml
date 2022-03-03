@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
+
+<ui:composition template="../WEB-INF/template/simple.xhtml">
+    <ui:insert name="header"></ui:insert>
+    <ui:define name="title">
+        RESUME
+    </ui:define>
+    <ui:define name="content1">
+
+        <h:form>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4>info vhéhicule</h4>
+                        <h:outputLabel value="Plaque/Plate :" styleClass="form-label"/>
+                        <h:outputText value="#{customerCarBean.billingDocument.car.model}" styleClass="form-control"/>
+                        <br/>
+
+                    </div>
+                    <div class="col">
+                        <h4>UTILISATEUR</h4>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Commande</h4>
+
+                    </div>
+                </div>
+
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+
+</html>
